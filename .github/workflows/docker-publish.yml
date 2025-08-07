@@ -1,7 +1,6 @@
 name: Publish Docker image
 
-on
-:
+on:
   push:
     branches: [ main ]
     tags: [ '*' ]
