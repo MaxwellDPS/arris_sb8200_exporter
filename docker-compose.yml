@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  sb8200_exporter:
+    image: chaoscorp/sb8200-exporter:latest
+    container_name: sb8200-exporter
+    environment:
+      SB8200_PASS: ${SB8200_PASS}
+      SB8200_USER: ${SB8200_USER:-Admin}
+      SB8200_URL: ${SB8200_URL:-http://192.168.100.1}
+    ports:
+      - "9800:9800"
+    restart: unless-stopped
