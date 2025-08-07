@@ -54,4 +54,4 @@ jobs:
           file: ./go_exporter/Dockerfile
           push: true
           tags: chaoscorp/sb8200-exporter-go:latest
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
