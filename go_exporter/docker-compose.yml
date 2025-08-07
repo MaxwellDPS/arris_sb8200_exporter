@@ -1,0 +1,23 @@
+version: "3.7"
+
+# docker-compose file for the Go SB8200 exporter.  This file is kept
+# separate from the top‑level docker‑compose.yml (which starts the Python
+# version) so you can choose which implementation to run.  Set your modem
+# credentials via environment variables below.  Only SB8200_PASSWORD is
+# mandatory; others have sensible defaults.
+
+services:
+  sb8200_exporter_go:
+    build: .
+    container_name: sb8200_exporter_go
+    environment:
+      - SB8200_HOST=${SB8200_HOST:-192.168.100.1}
+      - SB8200_USER=${SB8200_USER:-admin}
+      # Set your modem password via environment or .env file.  No default is set for security reasons.
+      - SB8200_PASSWORD=${SB8200_PASSWORD}
+      - SB8200_PORT=9215
+      - SB8200_POLL_INTERVAL=15
+      - SB8200_LOGS_MAX=100
+    ports:
+      - "9215:9215"
+    restart: unless-stopped
