@@ -115,6 +115,7 @@ def metrics():
     """Prometheus metrics endpoint."""
     registry = CollectorRegistry()
     session = requests.Session()
+    session.verify = False
     try:
         login(session)
     except Exception as e:
