@@ -30,3 +30,4 @@ jobs:
           context: .
           push: true
           tags: chaoscorp/sb8200-exporter:latest
+          platforms: linux/amd64,linux/arm64
